@@ -85,6 +85,10 @@
   peer.on("call", (incomingCall) => {
     mediaConnection && mediaConnection.close();
 
+    // Change state on start/stop button.
+    startVideoButtonEl.classList.remove("active");
+    stopVideoButtonEl.classList.add("active");
+
     // Answer incoming call.
     navigator.mediaDevices
       .getUserMedia({ audio: false, video: true })
